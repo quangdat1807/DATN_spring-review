@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Title -->
+<title>Products | Graindashboard UI Kit</title>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/asset/dashboard/img/favicon.ico">
+
+<!-- Template -->
+<link rel="stylesheet" href="/asset/dashboard/css/graindashboard.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class=" col-6 f-col f-col3 col-md-3 col-sm-6 col-xs-6">
+				<h3>Thông tin đặt hàng</h3>
+				<div style="margin-bottom: 30px;">
+					<span><i>Xin chào, [[${name}]]</i></span>
+				</div>
+                
+                    <div class="footer-title">
+                        <h4>Thông tin khách hàng</h4>
+                    </div>
+                    <div class="footer-content">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-user-alt"></i>
+								[[${name}]]</li>
+                            <li class="list-group-item"><i class="fas fa-location-arrow"></i>
+                                [[${address}]]</li>
+                        </ul>
+                    </div>
+				<div class="footer-title">
+					<h4>Đơn hàng của bạn</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="editModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog"
+					style="width: 700px; border: 1px dashed #ebebeb;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">
+								<b>Hủy đơn hàng</b>
+							</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<h3>Bạn chắc chắn muốn hủy đơn hàng này?</h3>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" action=""
+						id="cancelOrder">Đồng ý</button>
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	<div style="display: none;">
+		<form id="searchForm">
+			<input name="ten" type="text"
+				placeholder="Nhập SĐT đơn hàng cần tìm..." /> <input type="hidden"
+				name="trang" value="0" />
+                <input type="hidden"
+				name="email" th:value="${email}"/>
+                <input type="hidden"
+				name="customer_id" th:value="${customer_id}"/>
+                <select id="sort-item" name="xepTheo">
+				<option value="createdDate">Lọc theo ngày</option>
+				<option value="orderId">Lọc theo Id</option>
+			</select> <select id="sort-item" name="thuTu">
+				<option value="false">Giảm dần</option>
+				<option value="true">Tăng dần</option>
+			</select>
+
+			<button class="button" type="button" id="searchBt">Tìm kiếm</button>
+		</form>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-12 table-responsive-xl">
+				<table class="table table-striped table-sm" id="table">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Số điện thoại</th>
+							<th scope="col">Địa chỉ</th>
+							<th scope="col">Tổng tiền</th>
+                            <th scope="col">Sản phẩm</th>
+							<th scope="col">Tình trạng đơn hàng</th>
+							
+						</tr>
+					</thead>
+					<tbody id="myTable">
+
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+
+	</div>
+	<script src="/asset/dashboard/js/graindashboard.js"></script>
+	<script src="/asset/dashboard/js/graindashboard.vendor.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+		crossorigin="anonymous"></script>
+    
+
+	<!-- Validation -->
+	<script
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
+		integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"
+		integrity="sha512-XZEy8UQ9rngkxQVugAdOuBRDmJ5N4vCuNXCh8KlniZgDKTvf7zl75QBtaVG1lEhMFe2a2DuA22nZYY+qsI2/xA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/form-data-json-convert/dist/form-data-json.min.js"></script>
+	<script type="text/javascript">
+      var url = "/api/order";
+      var rowTemplate =
+        "{{#each order}}" +
+        "<tr>" +
+        '<td class="py-3">{{orderId}}</td>' +
+        '<td class="py-3">{{phoneNumber}}</td>' +
+        '<td class="py-3">{{address}} <p style = "display:block;">({{ward}}-{{district}}-{{province}})</td></p>' +
+        '<td class="py-3">{{total}}</td>' +
+        "{{#each order_items}}" +
+        '<td class="py-3" style = "display:block;">{{productName}} <p>(Số lượng: {{quantity}})</p> <p>Đơn giá: {{price}}</p></td>' +
+        "{{/each}}"+
+        
+        '<td class="py-3" style="color:#85AAD7;">{{tinhtrang.tinhTrang}}</td>' +
+        '<td class="py-3"><button style="color:red;" class="edit btn btn-outline" id="{{tinhtrang.idTT}}" c-id="{{orderId}}">Hủy đơn hàng</button></td>' +
+        "</tr>" +
+        "{{/each}}";
+      var rowHbs = Handlebars.compile(rowTemplate);
+      
+    var tinhtrangSelect = '<select id="tinhtrangSelect" class="form-control" name="idTT">{{#each tinhtrangs}}'
+			+ '<option value="{{idTT}}">'
+			+ "{{tinhTrang}}"
+			+ "</option>"
+			+ "{{/each}}</select>";
+		var tinhtrangSelectHbs = Handlebars.compile(tinhtrangSelect); 
+		
+
+      function loadList() {
+        var searchForm = FormDataJson.toJson(document.querySelector("form"));
+        console.log(searchForm);
+        var searchOption = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(searchForm),
+        };
+
+        fetch("/api/orderCustomer/search", searchOption)
+          .then((res) => res.json())
+          .then((data) => {
+            var rows = rowHbs({ order: data.content });
+           
+            $("#myTable").html(rows);
+            orderStatus();
+           
+            bindClick();
+            var pageHtml = "";
+            for (var i = 0; i < data.totalPages; i++) {
+              pageHtml += `<button style="display: inline-block; margin-left:5px;" value="${i}" id="datatablePagination0" class='${i == searchForm.trang ? "page-link active pageIndex" : "page-link pageIndex"}'>${i+1}</button>`;
+            }
+            $("#phanTrang").html(pageHtml);
+
+            $(".pageIndex").click(function () {
+              $('#searchForm input[name="trang"]').val($(this).val());
+              loadList();
+            });
+
+            
+          });
+
+
+          
+      }
+      loadList();
+
+      $("#searchBt").click(function () {
+        loadList();
+      });
+
+
+	  function orderStatus() {
+		$( "#2" ).remove();
+		$( "#3" ).remove();
+		$( "#4" ).remove();
+		$( "#5" ).remove();
+		
+		$('.edit').each(function(index, item) {
+    console.log(item.id);
+
+	if (item.id == 6 || item.id == 5 || item.id == 4  || item.id == 3  || item.id == 2) {
+		item.remove();
+	}
+	
+	
+});
+	  }
+
+      var insertModal = new bootstrap.Modal(
+        document.getElementById("editModal"),
+        {
+          keyboard: false,
+        }
+      );
+      
+   
+      
+
+      function bindClick() {
+        $(".edit").click(function () {
+          insertModal.show();
+          var id = $(this).attr("c-id");
+          console.log(id);
+
+		  idTT = 6;
+
+		  var order = {
+          id,
+		  idTT,
+		  tinhtrang: {idTT: '6'}
+
+        };
+
+
+		console.log(order);
+
+          var editOption = {
+    	  	          method: "PUT",
+    	  	          headers: {
+    	  	            "Content-Type": "application/json",
+    	  	          },
+    	  	          body: JSON.stringify(order),
+    	  	        };
+
+    	  	        
+					  $("#cancelOrder").button().click(function(){
+						
+    	  	        	order = fetch("/api/cencelOrder/" + id, editOption)
+    	  	            .then((response) => response.json())
+    	  	            .then((data) => {
+    	  	              console.log(data);
+    	  	              loadList();
+    	  	            });
+    	  	          insertModal.hide();
+    	  	        
+    });   
+        });
+      }
+      
+      
+    </script>
+</body>
+</html>

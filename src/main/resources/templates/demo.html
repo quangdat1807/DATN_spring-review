@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đức Phát | Thiết bị điện</title>
+<link rel="stylesheet" href="/asset/css/bootstrap.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="/asset/css/font-awesome.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="/asset/css/elegant-icons.css"
+	type="text/css" />
+<link rel="stylesheet" href="/asset/css/nice-select.css" type="text/css" />
+<link rel="stylesheet" href="/asset/css/jquery-ui.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="/asset/css/owl.carousel.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="/asset/css/slicknav.min.css"
+	type="text/css" />
+<link rel="stylesheet" href="/asset/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/asset/css/chitietsp.css" />
+<link rel="stylesheet" href="/asset/css/slideshow.css" />
+<link rel="stylesheet" href="/asset/css/modalhide.css" />
+<link rel="stylesheet" href="/asset/css/index.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.8/popper.min.js"></script>
+
+<script src="/asset/js/chitietsp.js"></script>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+<style>
+div.gio-hang {
+	display: none; /* Ẩn Mặc Định */
+	position: fixed;
+	z-index: 1021;
+	padding-top: 100px; /* Vị trí của modal */
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto; /* thiết lập scroll khi cần thiết */
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+/* Nội Dung Modal */
+.modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+		0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12), 0 16px
+		16px rgba(0, 0, 0, 0.12);
+	border-radius: 25px;
+}
+/* Nút Đóng Modal */
+.close {
+	position: absolute;
+	right: 8px;
+	top: 0px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn-continue {
+	border: none;
+}
+
+.bookrating {
+	border: none;
+}
+
+.nameProdrew {
+	font-size: 23px;
+	font-weight: 500;
+}
+
+.imageRew {
+	width: 100px;
+}
+
+.textarea {
+	border: 1px solid #bdbdbd;
+	border-radius: 4px;
+	margin-right: 12px;
+	margin-bottom: 20px;
+}
+
+.textarea-bottom {
+	border-top: 1px solid #bdbdbd;
+	font-size: 0;
+	padding: 8px 8px;
+}
+
+.read-assess__top {
+	padding: 5px 10px 15px 15px;
+}
+
+.comment-btn__item {
+	width: 30%;
+}
+
+.box-border {
+	width: 76%;
+}
+</style>
+
+
+</head>
+<body>
+
+	<!-- Humberger Begin -->
+	<div class="humberger__menu__overlay"></div>
+	<div class="humberger__menu__wrapper">
+		<div class="humberger__menu__logo">
+			<a href="#"><img src="/asset/img/logo.png" alt="" /></a>
+		</div>
+		<div class="humberger__menu__cart">
+			<ul>
+				<li><a href="./giohang.html"><i class="fa fa-shopping-bag"></i>
+						<span>3</span></a></li>
+			</ul>
+		</div>
+		<div class="humberger__menu__widget">
+			<div class="header__top__right__language">
+				<img src="/asset/img/language.png" alt="" />
+				<div>English</div>
+				<span class="arrow_carrot-down"></span>
+				<ul>
+					<li><a href="#">Spanis</a></li>
+					<li><a href="#">English</a></li>
+				</ul>
+			</div>
+			<div class="header__top__right__language">
+				<div>
+					<i class="fa fa-user"></i> Tài khoản
+				</div>
+				<span class="arrow_carrot-down"></span>
+				<ul>
+					<li><a href="/login">Đăng nhập</a></li>
+					<li><a href="/register">Đăng ký</a></li>
+				</ul>
+			</div>
+		</div>
+		<nav class="humberger__menu__nav mobile-menu">
+			<ul>
+				<li class="active"><a href="/">Trang chủ</a></li>
+				<li><a href="./product.html">Sản phẩm</a>
+					<ul class="header__menu__dropdown">
+						<li><a href="./shop-details.html">Đèn chiếu sáng</a></li>
+						<li><a href="./shoping-cart.html">Công tắc ổ cắm</a></li>
+						<li><a href="./checkout.html">CB-Thiết bị đóng cắt</a></li>
+						<li><a href="./blog-details.html">Đèn trang trí</a></li>
+						<li><a href="./blog-details.html">Ống luồn dây điện</a></li>
+						<li><a href="./blog-details.html">Dây cáp điện</a></li>
+					</ul></li>
+				<li><a href="./blog.html">Khuyến mãi</a></li>
+				<li><a href="./tintuc.html">Tin tức</a></li>
+				<li><a href="./contact.html">Liên hệ</a></li>
+				<li><a href="./blog-details.html">Lắp đặt</a></li>
+				<li><a href="./blog-details.html">Giới thiệu</a></li>
+			</ul>
+		</nav>
+		<div id="mobile-menu-wrap"></div>
+		<div class="header__top__right__social">
+			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+				class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a>
+			<a href="#"><i class="fa fa-pinterest-p"></i></a>
+		</div>
+		<div class="humberger__menu__contact">
+			<ul>
+				<li><i class="fa fa-envelope"></i>Ducphatelectric113@gmail.com</li>
+				<li>Thắp sáng ước mơ</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Humberger End -->
+
+	<!-- Header Section Begin -->
+	<header class="header">
+		<div class="header___top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="header__top__left">
+							<ul>
+								<li><i class="fa fa-envelope"></i>
+									Ducphatelectric113@gmail.com</li>
+								<li>Thắp sáng ước mơ</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="header__top__right">
+							<div class="header__top__right__social">
+								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+									class="fa fa-twitter"></i></a> <a href="#"><i
+									class="fa fa-linkedin"></i></a> <a href="#"><i
+									class="fa fa-pinterest-p"></i></a>
+							</div>
+							<div class="header__top__right__language">
+								<img src="/asset/img/language.png" alt="" />
+								<div>English</div>
+								<span class="arrow_carrot-down"></span>
+								<ul>
+									<li><a href="#">Spanis</a></li>
+									<li><a href="#">English</a></li>
+								</ul>
+							</div>
+							<div class="header__top__right__language">
+								<div>
+									<i class="fa fa-user"></i> Tài khoản
+								</div>
+								<span class="arrow_carrot-down"></span>
+								<ul>
+									<li><a href="/login">Đăng nhập</a></li>
+									<li><a href="/register">Đăng ký</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3" style="text-align: center">
+					<div class="header__logo">
+						<a href="./index.html"><img class="imglogo"
+							src="/asset/img/lg.png" alt="" width="" /></a>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="hero__search" style="padding-top: 20px">
+						<div class="hero__search__form">
+							<form action="#">
+								<input type="text" placeholder="What do yo u need?" />
+								<button type="submit" class="site-btn">SEARCH</button>
+							</form>
+						</div>
+						<div class="hero__search__phone">
+							<div class="hero__search__phone__icon">
+								<i class="fa fa-phone"></i>
+							</div>
+							<div class="hero__search__phone__text">
+								<h5>0987.654.321</h5>
+								<span>Hỗ trợ 24/7 </span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="humberger__open">
+				<i class="fa fa-bars"></i>
+			</div>
+		</div>
+	</header>
+	<!-- Header Section End -->
+
+	<!-- Hero Section Begin -->
+	<header class="header-bottom sticky-top">
+		<div class="container">
+			<nav class="header__menu">
+				<ul>
+					<li class="active"><a href="/">Trang chủ</a></li>
+					<li><a href="/product.html">Sản phẩm</a>
+						<ul class="header__menu__dropdown">
+							<li><a href="./shop-details.html">Đèn chiếu sáng</a></li>
+							<li><a href="./shoping-cart.html">Công tắc ổ cắm</a></li>
+							<li><a href="./checkout.html">CB-Thiết bị đóng cắt</a></li>
+							<li><a href="./blog-details.html">Đèn trang trí</a></li>
+							<li><a href="./blog-details.html">Ống luồn dây điện</a></li>
+							<li><a href="./blog-details.html">Dây cáp điện</a></li>
+						</ul></li>
+					<li><a href="./blog.html">Khuyến mãi</a></li>
+					<li><a href="./tintuc.html">Tin tức</a></li>
+					<li><a href="./contact.html">Liên hệ</a></li>
+					<li><a href="./blog-details.html">Lắp đặt</a></li>
+					<li><a href="./blog-details.html">Giới thiệu</a></li>
+					<li style="float: right"><a href="./giohang.html"
+						class="header___cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul id="breadcrumb" class="breadcrumb">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Product Details Section Begin -->
+	<section class="product-details spad">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4" id="img-detail"></div>
+				<div class="col-lg-5 col-md-5">
+					<div class="product__details__text" id="data-detail"></div>
+					<div class="product__details__text">
+						<ul>
+							<button class="primary-btn" onclick="addSP()">Mua ngay</button>
+							<a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+						</ul>
+					</div>
+
+				</div>
+
+				<div class=" col-lg-3 col-md-3">
+					<div class="sidebar-block service-block">
+						<div class="sidebar-content">
+							<div class="service-item service-item-two">
+								<div class="item-top">
+									<span class="slg"> <img class="slglogo"
+										src="/asset/img/detail/ship.png" alt="Giao hàng trong 24h">
+									</span> <span class="title"> Giao hàng trong 24h </span>
+								</div>
+								<p class="caption">Giao tới tận chân công trình cho khách
+									hàng</p>
+							</div>
+							<div class="service-item service-item-two">
+								<div class="item-top">
+									<span class="slg"> <img class="slglogo"
+										src="/asset/img/detail/chatluong.png" alt="Bảo đảm chất lượng">
+									</span> <span class="title"> Bảo đảm chất lượng </span>
+								</div>
+								<p class="caption">Tất cả các sản phẩm Đức Phát cung cấp đều
+									đảm bảo chất lượng khi đến tay người tiêu dùng.</p>
+							</div>
+							<div class="service-item service-item-two">
+								<div class="item-top">
+									<span class="slg"> <img class="slglogo"
+										src="/asset/img/detail/chinhhang.png"
+										alt="Sản phẩm chính hãng">
+									</span> <span class="title"> Sản phẩm chính hãng </span>
+								</div>
+								<p class="caption">Chúng tôi cung cấp các sản phẩm chính
+									hãng 100%.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-lg-12" id="data_description">
+			<div class="product__details__tab">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item"><a class="nav-link active"
+						data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">Description</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab"
+						href="#tabs-2" role="tab" aria-selected="false">Information</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab"
+						href="#tabs-3" role="tab" aria-selected="false">Reviews <span>(1)</span></a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tabs-1" role="tabpanel">
+						<div class="product__details__tab__desc">
+							<h6>Products Infomation</h6>
+							<p>Vestibulum ac diam sit amet quam vehicula elementum sed
+								sit amet dui. Pellentesque in ipsum id orci porta dapibus. Proin
+								eget tortor risus. Vivamus suscipit tortor eget felis porttitor
+								volutpat. Vestibulum ac diam sit amet quam vehicula elementum
+								sed sit amet dui. Donec rutrum congue leo eget malesuada.
+								Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur
+								arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
+								sapien massa, convallis a pellentesque nec, egestas non nisi.
+								Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+								dui. Vestibulum ante ipsum primis in faucibus orci luctus et
+								ultrices posuere cubilia Curae; Donec velit neque, auctor sit
+								amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor
+								risus.</p>
+							<p>Praesent sapien massa, convallis a pellentesque nec,
+								egestas non nisi. Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit. Mauris blandit aliquet elit, eget tincidunt
+								nibh pulvinar a. Cras ultricies ligula sed magna dictum porta.
+								Cras ultricies ligula sed magna dictum porta. Sed porttitor
+								lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh
+								pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum
+								sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam
+								sit amet quam vehicula elementum sed sit amet dui. Proin eget
+								tortor risus.</p>
+						</div>
+					</div>
+					<div class="tab-pane" id="tabs-2" role="tabpanel">
+						<div class="product__details__tab__desc">
+							<h6>Products Infomation</h6>
+							<p>Vestibulum ac diam sit amet quam vehicula elementum sed
+								sit amet dui. Pellentesque in ipsum id orci porta dapibus. Proin
+								eget tortor risus. Vivamus suscipit tortor eget felis porttitor
+								volutpat. Vestibulum ac diam sit amet quam vehicula elementum
+								sed sit amet dui. Donec rutrum congue leo eget malesuada.
+								Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur
+								arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
+								sapien massa, convallis a pellentesque nec, egestas non nisi.
+								Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+								dui. Vestibulum ante ipsum primis in faucibus orci luctus et
+								ultrices posuere cubilia Curae; Donec velit neque, auctor sit
+								amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor
+								risus.</p>
+							<p>Praesent sapien massa, convallis a pellentesque nec,
+								egestas non nisi. Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit. Mauris blandit aliquet elit, eget tincidunt
+								nibh pulvinar a. Cras ultricies ligula sed magna dictum porta.
+								Cras ultricies ligula sed magna dictum porta. Sed porttitor
+								lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh
+								pulvinar a.</p>
+						</div>
+					</div>
+					<div class="tab-pane" id="tabs-3" role="tabpanel">
+						<div class="product__details__tab__desc">
+							<div class="box-border">
+								<div class="rating " id="danhgia">
+									<p class="rating__title" id="titleRew"></p>
+
+									<div class="rating-star left">
+										<div class="rating-left">
+											<div class="rating-top">
+												<p class="point" id="avgScore"></p>
+												<div class="list-star" id="avgStar">
+													
+												</div>
+												<a class="rating-total" id="countRate"></a>
+
+											</div>
+											<ul class="rating-list">
+												<li>
+													<div class="number-star">
+														5 <i class="icondetail-blackstar"></i>
+													</div>
+													<div class="timeline-star">
+														<p class="timing" style="width: 25%"></p>
+													</div> <a href="/dtdd/samsung-galaxy-a32-4g/danh-gia?s=5&p=1"
+													class="number-percent">25%</a>
+												</li>
+												<li>
+													<div class="number-star">
+														4 <i class="icondetail-blackstar"></i>
+													</div>
+													<div class="timeline-star">
+														<p class="timing" style="width: 12%"></p>
+													</div> <a href="/dtdd/samsung-galaxy-a32-4g/danh-gia?s=4&p=1"
+													class="number-percent">12%</a>
+												</li>
+												<li>
+													<div class="number-star">
+														3 <i class="icondetail-blackstar"></i>
+													</div>
+													<div class="timeline-star">
+														<p class="timing" style="width: 24%"></p>
+													</div> <a href="/dtdd/samsung-galaxy-a32-4g/danh-gia?s=3&p=1"
+													class="number-percent">24%</a>
+												</li>
+												<li>
+													<div class="number-star">
+														2 <i class="icondetail-blackstar"></i>
+													</div>
+													<div class="timeline-star">
+														<p class="timing" style="width: 16%"></p>
+													</div> <a href="/dtdd/samsung-galaxy-a32-4g/danh-gia?s=2&p=1"
+													class="number-percent">16%</a>
+												</li>
+												<li>
+													<div class="number-star">
+														1 <i class="icondetail-blackstar"></i>
+													</div>
+													<div class="timeline-star">
+														<p class="timing" style="width: 22%"></p>
+													</div> <a href="/dtdd/samsung-galaxy-a32-4g/danh-gia?s=1&p=1"
+													class="number-percent">22%</a>
+												</li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+								<div class="comment comment--all ratingLst">
+									<!-- Button trigger modal -->
+									<button type="button" class="comment-btn__item blue"
+										data-toggle="modal" data-target=".bd-example-modal-lg">
+										<i class="iconratingnew-circlestar--big"></i>Viết đánh giá</a>
+									</button>
+									
+									<div class="comment comment--all ratingLst" >
+										<div id="loadRew">
+										
+										</div>
+
+
+										<!-- Modal -->
+										<div class="modal fade bd-example-modal-lg" tabindex="-1"
+											role="dialog" aria-labelledby="myLargeModalLabel"
+											aria-hidden="true" id="editModal">
+											<div class="modal-dialog modal-lg">
+												<div class="modal-content" style="width: 100%">
+													<div class="read-assess__top">
+														<p class="read-assess__title">Đánh giá</p>
+														<!-- <button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button> -->
+													</div>
+
+													<form class="read-assess-main" id="reviewForm">
+
+														<div class="box-cmt-popup">
+															<div id="getProductId"></div>
+
+															<div class="select-star">
+																<p class="txt01">Bạn cảm thấy sản phẩm này như thế
+																	nào?</p>
+
+
+																<div class="str_Rating_detail">
+																	<!--star rating-->
+																	<div id="" data-rating="5"
+																		data-rateyo-read-only="false"
+																		class="rateYo bookrating"></div>
+																	<!-- to show selected star value-->
+																	<input type="text" class="bookrating">
+
+																</div>
+															</div>
+														</div>
+
+														<div class="read-assess-form">
+															<div class="textarea">
+																<textarea class="ct" name="description" id="description"
+																	placeholder="Mời bạn chia sẻ thêm một số cảm nhận ..."></textarea>
+
+																<div class="textarea-bottom clearfix">
+
+																	<input type="file" name="imgupload" class="upload"
+																		id="${editProp.prop}_file" accept="image/*"> <input
+																		name="hinhanh" placeholder="Hình ảnh" type="hidden"
+																		cssClass="form-control" id="pictureInput" /> <img
+																		id="imgpr" src="" style="width: 25%" /> <input
+																		id="hdFileRatingUpload" type="file" class="hide"
+																		accept="image/x-png, image/gif, image/jpeg" />
+
+																	<ul class="resRtImg hide">
+																	</ul>
+																</div>
+															</div>
+
+															<div class="list-input" style="flex-wrap: wrap;">
+																<input type="text" name="nameRew" class="input-assess"
+																	placeholder="Họ và tên (bắt buộc)" value="">
+																
+																<input type="number" name="phoneNumber" class="input-assess"
+																	placeholder="Số điện thoại (bắt buộc)" value="">
+																
+																<input type="text" name="gmail" class="input-assess"
+																	style="margin-right: 12px"
+																	placeholder="Email (không bắt buộc)" value="">
+																<div class="errorMol" id="messError"></div>															
+															</div>
+															
+
+															<button type="submit" class="submit-assess"
+																id="addreview">Gửi đánh giá ngay</button>
+															<span class="lbMsgRt hide"></span>
+
+														</div>
+													</form>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+	</section>
+	<section class="categories">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-title related__product__title">
+							<p style="font-size: 23px; font-weight: 550; color: #000">Sản phẩm cùng loại</p>
+						</div>
+					</div>
+					<div class="categories__slider owl-carousel">
+						<div class="col-lg-3" th:each="products : ${products}">
+							<div class="thumb-wrapper">
+								<a th:href="@{'/detail/' + ${products.seourl}}"
+									th:attr="onclick=|loaddetail('${products.productId}')|"> <span
+									class="sale"
+									th:text="${#numbers.formatDecimal(products.khuyenmai, 0, 'COMMA', 0, 'POINT') +'%'}">
+
+								</span> <img th:src="${products.hinhanh}" alt="" />
+									<p class="product-item-name">[[${products.tensanpham}]]</p>
+
+									<div class="item-price">
+										<div class="price-box price-final_price">
+											<span class="special-price"> <span
+												class="price-container"> <span class="price-wrapper">
+														<span class="price"
+														th:text="${#numbers.formatDecimal(products.gia, 0, 'COMMA', 0, 'POINT') +'₫'}"></span>
+												</span>
+											</span>
+											</span> <span class="old-price"> <span
+												class="price-container"
+												th:with="discount=${(100 - products.khuyenmai)/100}">
+													<span class="price-wrapper"
+													th:with="specialprice=${products.gia / discount}"> <span
+														class="price"
+														th:text="${#numbers.formatDecimal(specialprice, 0, 'COMMA', 0, 'POINT') +'₫'}"></span>
+												</span>
+											</span>
+											</span>
+										</div>
+									</div>
+
+								</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<!-- Modal Cho Website -->
+	<div id="myModal" class="gio-hang">
+		<!-- Nội Dung Modal -->
+		<div class="modal-content">
+			<span class="close">×</span>
+			<div id="table-content"></div>
+		</div>
+	</div>
+	
+	
+	
+	  
+
+	<!-- Modal -->
+
+	<div id="back-top">
+		<a title="Go to Top" href="#"> <i class="fa fa-angle-double-up"></i></a>
+	</div>
+	<!-- Footer Section Begin -->
+	<footer class="footer spad" style="margin-top: 100px">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="footer__about">
+						<div class="footer__about__logo">
+							<a href="./index.html"><img src="img/lg.png" alt="" /></a>
+						</div>
+						<ul>
+							<li>Address: 60-49 Road 11378 New York</li>
+							<li>Phone: +65 11.188.888</li>
+							<li>Email: sondtpk01429@fpt.edu.vn</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+					<div class="footer__widget">
+						<h6>Useful Links</h6>
+						<ul>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">About Our Shop</a></li>
+							<li><a href="#">Secure Shopping</a></li>
+							<li><a href="#">Delivery infomation</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Our Sitemap</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">Who We Are</a></li>
+							<li><a href="#">Our Services</a></li>
+							<li><a href="#">Projects</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Innovation</a></li>
+							<li><a href="#">Testimonials</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-12">
+					<div class="footer__widget">
+						<h6>Join Our Newsletter Now</h6>
+						<p>Get E-mail updates about our latest shop and special
+							offers.</p>
+						<form action="#">
+							<input type="text" placeholder="Enter your mail" />
+							<button type="submit" class="site-btn">Subscribe</button>
+						</form>
+						<div class="footer__widget__social">
+							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+								class="fa fa-instagram"></i></a> <a href="#"><i
+								class="fa fa-twitter"></i></a> <a href="#"><i
+								class="fa fa-pinterest"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="footer__copyright">
+						<div class="footer__copyright__text">
+							<p>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy; All rights reserved | This template design by <i
+									class="fa fa-heart" aria-hidden="true"></i> by <a href="#"
+									target="_blank">Team No Crack</a>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</p>
+						</div>
+						<div class="footer__copyright__payment">
+							<img src="img/payment-item.png" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	
+	<script src="/asset/js/bootstrap.min.js"></script>
+	<script src="/asset/js/jquery.nice-select.min.js"></script>
+	<script src="/asset/js/jquery-ui.min.js"></script>
+	<script src="/asset/js/jquery.slicknav.js"></script>
+	<script src="/asset/js/mixitup.min.js"></script>
+	<script src="/asset/js/owl.carousel.min.js"></script>
+	<script src="/asset/js/main.js"></script>
+	<script src="/asset/js/api/product.js"></script>
+	<script src="/asset/js/api/cart.js"></script>
+	<script src="/asset/js/chitietsp.js"></script>
+	<script src="/asset/js/review.js"></script>
+	<script src="/asset/js/jquery-3.3.1.min.js"></script>
+	<!-- Validation -->
+	<script
+		src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/form-data-json-convert/dist/form-data-json.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+	
+	
+	<script>
+
+	/* /* get rating */
+	$(".rateYo").each(function (e) {
+    
+    var language = "english";
+    var rating = $(this).attr("data-rating");
+    $(this).rateYo({
+        onSet: function (rating) {
+            
+                $(this).next().val(ChngRatevaluesEn[rating]);
+            
+            //ratingFunc(rating, $(this).next().next().val());
+            console.log(rating);
+            $('#valueRating').val(rating);
+        },
+        rating: rating,
+        starWidth: "20px",
+        numStars: 5,
+        fullStar: true,
+        normalFill: "#A0A0A0",
+        spacing: "5px",
+        precision: 2,
+        // rtl: true,
+        // readOnly: true,
+    });
+});
+ 
+	
+	
+	$('.upload').change(function() {
+		  
+	    uploadFile(this);
+	});
+ 
+ 
+	uploadFile = async (fileInput) => {
+	    let formData = new FormData()
+	    formData.append('file', fileInput.files[0]);
+	    let uploadOption = {
+	        method: 'POST',
+	        body: formData
+	    };
+	    try {
+	        let response = await fetch('/upload', uploadOption);
+	        if (response.ok) {
+	            let uploadResult = await response.json();
+	            if (uploadResult.uploaded) {
+					$('#pictureInput').val(uploadResult.url);
+		            let $img =  $(fileInput).next().next();
+		            if ($img.length > 0) {
+		                $('#imgpr').attr('src',uploadResult.url);
+		            }
+		        } else {
+		            alert(uploadResult.messsage);
+		        }
+	        } else {
+	            let error = await response.json();
+	            alert(error);
+	        }
+	    } catch(error) {
+	        alert(error);
+	    }
+	}
+	
+		$(function() {
+			$('#reviewForm').validate({
+				rules: {
+					nameRew: {
+						required: true,
+						minlength: 1,
+						maxlength: 50,
+					},
+					description: {
+						required: true,
+						minlength: 20,
+						maxlength: 350,
+					},
+					phoneNumber: {
+						required: true,
+						minlength: 10,
+						maxlength: 11,
+					}
+				},
+				messages: {
+					nameRew: "Vui lòng nhập đủ thông tin!",
+					description: "Hãy đánh giá thêm về sản phẩm!",
+					phoneNumber: "Vui lòng nhập đúng số điện thoại!"
+				},
+				errorPlacement: function(error, element) {
+			        if (element.attr('name') == 'nameRew') {
+			            error.insertAfter('#messError');
+			        }else if(element.attr('name') == 'phoneNumber') {
+			            error.insertAfter('#messError');
+			        }else{
+			            error.insertAfter(element);
+			        }
+			 	},
+				submitHandler: function () {
+					var productId = localStorage.getItem("prid");
+				    var $form = $('#reviewForm');
+				    /* get rating */
+				    
+				    var rewData = {
+				    	productId,
+				    	score : $form.find('input[name="score"]').val(),
+				    	image : $form.find('input[name="hinhanh"]').val(),				   
+				    	name: $form.find('input[name="nameRew"]').val(),
+				    	phoneNumber: $form.find('input[name="phoneNumber"]').val(),
+				    	description : $('textarea#description').val()
+				      };
+				    console.log(rewData)
+				      $.ajax({
+				          url: "/api/review",
+				          type: "POST",
+				          data: JSON.stringify(rewData),
+				          contentType: "application/json; charset=utf-8",
+				          dataType: "json",
+				          success: function (data, textStatus, jqXHR) {
+				            
+				            console.log(data);
+				          },
+				        }); 
+				},
+			});
+		});
+		
+		
+		var span = document.getElementsByClassName("close")[0];
+		/* Sẽ đóng modal khi nhấn dấu x */
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		
+	</script>
+</body>
+</html>
