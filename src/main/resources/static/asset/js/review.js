@@ -20,9 +20,10 @@ function renderReview(json) {
 	console.log(json)
 	var rews = document.querySelector("#loadRew");
 	var rating = [];
-	
+
 	var loadRew = json.map(function(rew) {
 		rating.push(rew.score)
+
 		var html = `
 			<div class="comment__item par" >
 
@@ -34,22 +35,31 @@ function renderReview(json) {
 			<div class="item-rate">
 				<div class="comment-star">
                     <div class="jstars" data-value="${rew.score}"></div>
-				
 				</div>
 			</div>
 			<div class="comment-content">
 				<p class="cmt-txt">${rew.description}</p>
 			</div>
-			
+			<div class="comment-content">
+				<div class="cmt-img">
+					<object class="lazyload" style="width: 100px" data="${rew.image}" type="image/jpg">
+						
+					</object>
+				</div>
+			</div>
 			</div>
 			`;
-		return html ;
+		return html;
 	});
 	
 	rews.innerHTML = loadRew.join(" ");
 	loadne();
 	
-	console.log(rating.length)
+	/*Tính tổng review*/
+	var sumRew = rating.length;
+	$("#sumRew").text("("+sumRew+")");
+	
+	console.log(rating.length, sumRew)
 	var avg = rating.reduce(function(p,c,i,a){return p + (c/a.length)},0);
 	$("#avgScore").text(avg);
 
@@ -72,7 +82,6 @@ function renderReview(json) {
 	$("#countRate").text(rating.length + " đánh giá");
 	avgRev.innerHTML = avgRew.join(" ");
 }
-
 
 /**!
  * jStars 1.0 | Nick Potafiy
